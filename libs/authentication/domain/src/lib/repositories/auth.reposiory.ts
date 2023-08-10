@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import {UserModel} from "@authentication/domain";
+import {AuthDTO, AuthResponse} from "../entities/auth.model";
 
 export abstract class AuthRepository {
-  abstract login(email: string,password:string): Observable<UserModel | null>;
+  abstract login(authDTO:AuthDTO): Observable<AuthResponse>;
 }

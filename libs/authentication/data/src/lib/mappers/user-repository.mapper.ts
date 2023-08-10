@@ -1,25 +1,25 @@
 import {Mapper} from "./mapper";
+import {UserEntity} from "../entities/user-entity";
+import {UserModel} from "@authentication/domain";
 
 
-export class AuthImplementationRepositoryMapper extends Mapper<AuthEnity, UserModel> {
-    mapFrom(param: UserEntity): UserModel {
-        return {
-            id: param.id,
-            fullName: param.name,
-            username: param.userName,
-            phoneNum: param.phoneNumber,
-            profilePicture: param.userPicture,
-            activationStatus: param.activationStatus
-        };
+export class UserImplementationRepositoryMapper extends Mapper<UserEntity, UserModel> {
+  mapFrom(param: UserEntity): UserModel {
+    return {
+      id: param.id,
+      email: '',
+      password: ''
+    };
+  }
+
+  mapTo(param: UserModel): UserEntity {
+    return {
+      id: param.id,
+      userName: '',
+      phoneNumber: '',
+      userPicture: '',
+      activationStatus: true,
+      name: ''
     }
-    mapTo(param: UserModel): UserEntity {
-        return {
-            id: param.id,
-            name: param.fullName,
-            userName: param.username,
-            phoneNumber: param.phoneNum,
-            userPicture: param.profilePicture,
-            activationStatus: param.activationStatus
-        }
-    }
+  }
 }

@@ -1,0 +1,50 @@
+{
+  "name": "debtor-data",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/debtor/data/src",
+  "prefix": "klym",
+  "tags": ["data","scope:debtor"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/debtor/data/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/debtor/data/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/debtor/data/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/debtor/data/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/debtor/data/**/*.ts",
+          "libs/debtor/data/**/*.html"
+        ]
+      }
+    }
+  }
+}

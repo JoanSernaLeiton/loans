@@ -1,16 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {User} from "@authentication/domain";
-import {UserRepository} from "@authentication/data";
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+import {AuthDTO, AuthRepository, AuthResponse} from "@authentication/domain";
 
 @Injectable({ providedIn: 'root' })
-export class UserService implements UserRepository {
-
-  login(email: string,password:string): Observable<User | null> {
-    return of({
-      id: '3',
-      email: 'joan.serna@klym.com',
-      password: 'klym'
-    })
+export class AuthService extends AuthRepository{
+  login(authDTO:AuthDTO): Observable<AuthResponse> {
+    // Simulate API call with a delay
+    return of({ token: 'mocked-token' }).pipe(delay(5000));
   }
 }

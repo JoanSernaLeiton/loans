@@ -1,0 +1,50 @@
+{
+  "name": "authentication-data",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/authentication/data/src",
+  "prefix": "klym",
+  "tags": ["data","scope:authentication"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/authentication/data/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/authentication/data/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/authentication/data/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/authentication/data/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/authentication/data/**/*.ts",
+          "libs/authentication/data/**/*.html"
+        ]
+      }
+    }
+  }
+}

@@ -1,5 +1,8 @@
-export interface User {
-  id: string;
+export interface AuthDTO {
   email: string;
   password: string;
+}
+
+export interface AuthResponse {
+  token: string
 }

@@ -14,7 +14,23 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@authentication/data": ["libs/authentication/data/src/index.ts"],
+      "@authentication/domain": ["libs/authentication/domain/src/index.ts"],
+      "@authentication/facade": ["libs/authentication/facade/src/index.ts"],
+      "@authentication/infrastructure": [
+        "libs/authentication/infrastructure/src/index.ts"
+      ],
+      "@authentication/ui": ["libs/authentication/ui/src/index.ts"],
+      "@debtor/data": ["libs/debtor/data/src/index.ts"],
+      "@debtor/domain": ["libs/debtor/domain/src/index.ts"],
+      "@debtor/facade": ["libs/debtor/facade/src/index.ts"],
+      "@debtor/infrastructure": ["libs/debtor/infrastructure/src/index.ts"],
+      "@debtor/ui": ["libs/debtor/ui/src/index.ts"],
+      "@klym/shared/data-access-user": [
+        "libs/shared/data-access-user/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

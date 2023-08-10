@@ -1,21 +1,26 @@
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
-import { UserService } from '@data/services/user.service';
-import { login, loginSuccess, loginFailure } from './auth.actions';
-
-@Injectable()
-export class AuthEffects {
-  login$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(login),
-      switchMap(({ email, password }) =>
-        this.userService.login(email, password).pipe(
-          map((user) => (user ? loginSuccess({ token: user.id }) : loginFailure({ error: 'Invalid credentials' })))
-        )
-      )
-    )
-  );
-
-  constructor(private actions$: Actions, private userService: UserService) {}
+import { createReducer, on } from '@ngrx/store';
+import * as AuthActions from './auth.actions';
+export const AUTH_KEY = 'auth'
+export interface AuthState {
+  token: string | null;
+  error: string | null;
 }
+
+export const initialState: AuthState = {
+  token: null,
+  error: null,
+};
+
+export const authReducer = createReducer(
+  initialState,
+  on(AuthActions.SignInSuccess, (state, { token }) => ({
+    ...state,
+    token,
+    error: null,
+  })),
+  on(AuthActions.SignInFailure, (state, { error }) => ({
+    ...state,
+    token: null,
+    error,
+  }))
+);
