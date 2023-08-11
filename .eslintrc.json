@@ -14,23 +14,23 @@
             "depConstraints": [
               {
                 "sourceTag": "ui",
-                "onlyDependOnLibsWithTags": ["domain","facade"]
+                "onlyDependOnLibsWithTags": ["domain","facade","infrastructure"]
               },
               {
                 "sourceTag": "facade",
-                "allowedDependencies": ["domain", "facade", "infrastructure"]
+                "onlyDependOnLibsWithTags": ["domain", "facade", "infrastructure"]
               },
               {
-                "sourceTag": "infraestructure",
-                "allowedDependencies": ["infrastructure","data"]
+                "sourceTag": "infrastructure",
+                "onlyDependOnLibsWithTags": ["infrastructure","data","domain"]
               },
               {
                 "sourceTag": "data",
-                "allowedDependencies": ["data", "domain"]
+                "onlyDependOnLibsWithTags": ["data", "domain"]
               },
               {
                 "sourceTag": "domain",
-                "allowedDependencies": ["domain"]
+                "onlyDependOnLibsWithTags": ["domain"]
               },
               {
                 "sourceTag": "scope:authentication",

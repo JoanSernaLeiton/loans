@@ -2,6 +2,9 @@ const { withModuleFederation } = require('@nx/angular/module-federation');
 const config = require('./module-federation.config');
 module.exports = withModuleFederation({
   ...config,
+  remotes: [
+    ['shell', 'http://localhost:8080']
+  ]
   /*
    * Remote overrides for production.
    * Each entry is a pair of a unique name and the URL where it is deployed.

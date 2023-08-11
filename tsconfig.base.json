@@ -21,15 +21,7 @@
       "@authentication/infrastructure": [
         "libs/authentication/infrastructure/src/index.ts"
       ],
-      "@authentication/ui": ["libs/authentication/ui/src/index.ts"],
-      "@debtor/data": ["libs/debtor/data/src/index.ts"],
-      "@debtor/domain": ["libs/debtor/domain/src/index.ts"],
-      "@debtor/facade": ["libs/debtor/facade/src/index.ts"],
-      "@debtor/infrastructure": ["libs/debtor/infrastructure/src/index.ts"],
-      "@debtor/ui": ["libs/debtor/ui/src/index.ts"],
-      "@klym/shared/data-access-user": [
-        "libs/shared/data-access-user/src/index.ts"
-      ]
+      "@authentication/ui": ["libs/authentication/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

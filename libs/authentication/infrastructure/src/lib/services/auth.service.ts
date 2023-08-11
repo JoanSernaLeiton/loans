@@ -7,6 +7,7 @@ import {AuthDTO, AuthRepository, AuthResponse} from "@authentication/domain";
 export class AuthService extends AuthRepository{
   login(authDTO:AuthDTO): Observable<AuthResponse> {
     // Simulate API call with a delay
+    console.log('request api winner')
     return of({ token: 'mocked-token' }).pipe(delay(5000));
   }
 }

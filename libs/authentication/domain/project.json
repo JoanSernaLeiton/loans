@@ -6,22 +6,6 @@
   "tags": ["domain","scope:authentication"],
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "@nx/angular:package",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-      "options": {
-        "project": "libs/authentication/domain/ng-package.json"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "libs/authentication/domain/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/authentication/domain/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

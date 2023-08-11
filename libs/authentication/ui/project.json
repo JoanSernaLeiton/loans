@@ -6,22 +6,6 @@
   "tags": ["ui","scope:authentication"],
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "@nx/angular:package",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-      "options": {
-        "project": "libs/authentication/ui/ng-package.json"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "libs/authentication/ui/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/authentication/ui/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

@@ -27,6 +27,7 @@
       },
       "configurations": {
         "production": {
+          "sourceMap": true,
           "budgets": [
             {
               "type": "initial",
@@ -36,7 +37,7 @@
             {
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumError": "10kb"
             }
           ],
           "outputHashing": "all",

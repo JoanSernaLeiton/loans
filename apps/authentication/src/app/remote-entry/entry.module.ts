@@ -1,14 +1,18 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {RemoteEntryComponent} from './entry.component';
-import {remoteRoutes} from './entry.routes';
-import {AuthenticationUiModule} from "@authentication/ui";
+import { RemoteEntryComponent } from './entry.component';
+import { AuthenticationUiModule } from '@authentication/ui';
+import { ProxyComponent } from '../proxy/proxy.component';
+import { RouterModule } from '@angular/router';
+import { remoteRoutes } from './entry.routes';
 
 @NgModule({
-  declarations: [RemoteEntryComponent],
-  imports: [CommonModule, RouterModule.forChild(remoteRoutes), AuthenticationUiModule,],
+  declarations: [RemoteEntryComponent, ProxyComponent],
+  imports: [
+    CommonModule,
+    AuthenticationUiModule,
+    RouterModule.forChild(remoteRoutes),
+  ],
 })
-export class RemoteEntryModule {
-}
+export class RemoteEntryModule {}

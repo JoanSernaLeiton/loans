@@ -5,8 +5,14 @@
   "private": true,
   "scripts": {
     "graph": "nx graph",
+    "start:shell": "nx serve --project shell --devRemotes=authentication",
+    "build:dev:shell": "nx build --project shell --skip-nx-cache --configuration=development",
+    "build:prod:shell": "nx build --project shell --skip-nx-cache",
     "start:authentication": "nx serve --project authentication",
-    "lint:authentication": "nx lint --project authentication"
+    "build:dev:authentication": "nx build --project authentication --skip-nx-cache --configuration=development",
+    "build:prod:authentication": "nx build --project authentication --skip-nx-cache",
+    "start:local:authentication": "npx http-server dist/apps/authentication . -p 4202 --cors='*' --single",
+    "start:local:shell": "npx http-server dist/apps/shell . "
   },
   "dependencies": {
     "@angular/animations": "~16.1.0",
