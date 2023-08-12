@@ -687,3 +687,8 @@ $RECYCLE.BIN/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/node,yarn,linux,macos,django,python,angular,windows,webstorm,visualstudiocode
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

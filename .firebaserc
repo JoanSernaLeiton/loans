@@ -1,0 +1,17 @@
+{
+  "targets": {
+    "angular-architecture": {
+      "hosting": {
+        "shell": [
+          "angular-architecture-shell"
+        ],
+        "authentication": [
+          "angular-architecture-authentication"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-architecture"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "hosting": [
+    {
+      "target": "authentication",
+      "public": "dist/apps/authentication",
+      "frameworksBackend": {},
+      "headers": [
+        {
+          "source": "**/*.@(mjs|js)",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "shell",
+      "public": "dist/apps/shell",
+      "frameworksBackend": {},
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
