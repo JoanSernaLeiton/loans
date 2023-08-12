@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import {AuthDTO, AuthRepository, AuthResponse} from "@authentication/domain";
+import { AuthDTO, AuthRepository, AuthResponse } from "@authentication/domain";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends AuthRepository{
