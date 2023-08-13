@@ -6,6 +6,22 @@
   "tags": ["infrastructure","scope:authentication"],
   "projectType": "library",
   "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/authentication/infrastructure/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/authentication/infrastructure/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/authentication/infrastructure/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

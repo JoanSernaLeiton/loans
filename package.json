@@ -6,18 +6,23 @@
   "scripts": {
     "graph": "nx graph",
     "start:shell": "nx serve --project shell --devRemotes=authentication",
-    "build:dev:shell": "nx build --project shell --skip-nx-cache --configuration=development",
-    "build:prod:shell": "nx build --project shell --skip-nx-cache",
     "start:authentication": "nx serve --project authentication",
-    "build:dev:authentication": "nx build --project authentication --skip-nx-cache --configuration=development",
-    "build:prod:authentication": "nx build --project authentication --skip-nx-cache",
     "start:local:authentication": "npx http-server dist/apps/authentication . -p 4202 --cors='*' --single",
     "start:local:shell": "npx http-server dist/apps/shell . ",
     "build:all:prod": "npm run build:prod:authentication && npm run build:prod:shell",
     "build:all:dev": "npm run build:dev:authentication && npm run build:dev:shell",
     "deploy:authentication": "nx deploy authentication",
     "deploy:shell": "nx deploy shell",
-    "deploy:all": "npm run deploy:authentication && npm run deploy:shell"
+    "deploy:all": "npm run deploy:authentication && npm run deploy:shell",
+    "build:dev:shell": "nx build --project shell --configuration=development",
+    "build:prod:shell": "nx build --project shell",
+    "build:dev:authentication": "nx build --project authentication --configuration=development",
+    "build:dev:authentication-domain": "nx build --project authentication-domain --configuration=development",
+    "build:dev:authentication-data": "nx build --project authentication-data --configuration=development",
+    "build:dev:authentication-infrastructure": "nx build --project authentication-infrastructure --configuration=development",
+    "build:dev:authentication-facade": "nx build --project authentication-facade --configuration=development",
+    "build:dev:authentication-ui": "nx build --project authentication-ui --configuration=development",
+    "build:prod:authentication": "nx build --project authentication "
   },
   "dependencies": {
     "@angular/animations": "~16.1.0",
