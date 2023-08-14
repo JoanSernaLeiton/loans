@@ -13,23 +13,27 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}, {
-      runtimeChecks: {
-        strictStateImmutability:true,
-        strictStateSerializability:true,
-        strictActionTypeUniqueness:true,
-        strictActionImmutability:true,
-        strictActionSerializability:true,
+    StoreModule.forRoot(
+      {},
+      {
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictStateSerializability: true,
+          strictActionTypeUniqueness: true,
+          strictActionImmutability: true,
+          strictActionSerializability: true,
+        },
       }
-    }),
+    ),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({maxAge:25}),
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
-  exports:[
+  exports: [
     StoreModule,
     EffectsModule,
-    StoreDevtoolsModule
+    StoreDevtoolsModule,
+    NxWelcomeComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

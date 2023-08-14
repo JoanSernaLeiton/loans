@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'klym-home-entry',
-  template: `<div>
-    Hola Mundo
-  </div>`,
+  template: `<klym-nx-welcome/>`,
 })
 export class RemoteEntryComponent {}

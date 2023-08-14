@@ -4,31 +4,20 @@
   "projectType": "application",
   "prefix": "klym",
   "sourceRoot": "apps/shell/src",
-  "tags": [],
-  "implicitDependencies": [
-    "authentication"
-  ],
+  "tags": ["scope:host"],
+  "implicitDependencies": ["authentication"],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/shell",
         "index": "apps/shell/src/index.html",
         "main": "apps/shell/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/shell/tsconfig.app.json",
-        "assets": [
-          "apps/shell/src/favicon.ico",
-          "apps/shell/src/assets"
-        ],
-        "styles": [
-          "apps/shell/src/styles.scss"
-        ],
+        "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
+        "styles": ["apps/shell/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/shell/webpack.config.js"
@@ -89,21 +78,14 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/shell/**/*.ts",
-          "apps/shell/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/shell/**/*.ts", "apps/shell/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/shell/jest.config.ts",
         "passWithNoTests": true
@@ -127,6 +109,13 @@
       "options": {
         "version": 2,
         "browserTarget": "shell:build:production"
+      }
+    },
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/shell"],
+      "options": {
+        "config": "apps/shell/playwright.config.ts"
       }
     }
   }

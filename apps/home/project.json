@@ -111,6 +111,13 @@
           "buildTarget": "home:build:production"
         }
       }
+    },
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/home"],
+      "options": {
+        "config": "apps/home/playwright.config.ts"
+      }
     }
   }
 }

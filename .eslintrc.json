@@ -35,6 +35,10 @@
               {
                 "sourceTag": "scope:authentication",
                 "onlyDependOnLibsWithTags": ["scope:authentication"]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["ui"]
               }
             ]
           }
