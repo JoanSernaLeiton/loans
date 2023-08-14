@@ -14,7 +14,6 @@
     "affected:lint": "nx affected:lint",
     "affected:dep-graph": "nx graph --affected",
     "affected": "nx affected",
-
     "authentication:start:": "nx serve authentication",
     "authentication:lint": "nx lint authentication",
     "authentication:test": "nx test authentication",
@@ -24,7 +23,6 @@
     "authentication:build:prod": "nx build --project authentication",
     "authentication:deploy:": "nx deploy authentication",
     "authentication:start:local": "npx http-server dist/apps/authentication . -p 4202 --cors='*' --single",
-
     "shell:start:": "nx serve shell",
     "shell:lint": "nx lint shell",
     "shell:test": "nx test shell",
@@ -34,7 +32,6 @@
     "shell:build:prod": "nx build --project shell",
     "shell:deploy:": "nx deploy shell",
     "shell:start:local": "npx http-server dist/apps/shell . ",
-
     "home:start:": "nx serve home",
     "home:lint": "nx lint home",
     "home:test": "nx test home",
@@ -43,7 +40,6 @@
     "home:build:prod": "nx build --project home",
     "home:deploy:": "nx deploy home",
     "home:start:local": "npx http-server dist/apps/authentication . -p 4205 --cors='*' --single",
-
     "deploy:all": "npm run deploy:authentication && npm run deploy:shell",
     "build:all:prod": "npm run build:prod:authentication && npm run build:prod:shell",
     "build:all:dev": "npm run build:dev:authentication && npm run build:dev:shell"
@@ -81,6 +77,7 @@
     "@nx/jest": "16.5.5",
     "@nx/js": "16.5.5",
     "@nx/linter": "16.5.5",
+    "@nx/nest": "^16.6.0",
     "@nx/playwright": "^16.7.0-beta.1",
     "@nx/web": "16.5.5",
     "@nx/workspace": "16.5.5",
