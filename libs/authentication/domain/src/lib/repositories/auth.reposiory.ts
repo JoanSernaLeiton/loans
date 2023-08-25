@@ -1,6 +1,8 @@
 import { Observable } from 'rxjs';
-import { AuthDTO, AuthResponse } from '../entities/auth.model';
+import { AuthResponse, SignInDTO, SignUpDTO } from '../entities/auth.model';
 
 export abstract class AuthRepository {
-  abstract login(authDTO: AuthDTO): Observable<AuthResponse>;
+  abstract signIn(authDTO: SignInDTO): Observable<AuthResponse>;
+  abstract signUp(authDTO: SignUpDTO): Observable<AuthResponse>;
+  abstract saveToken(token: string): void;
 }

@@ -1,10 +1,19 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nx"
+  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
       "rules": {
         "@nx/enforce-module-boundaries": [
           "error",
@@ -14,31 +23,53 @@
             "depConstraints": [
               {
                 "sourceTag": "ui",
-                "onlyDependOnLibsWithTags": ["domain","facade","infrastructure"]
+                "onlyDependOnLibsWithTags": [
+                  "domain",
+                  "facade",
+                  "infrastructure"
+                ]
               },
               {
                 "sourceTag": "facade",
-                "onlyDependOnLibsWithTags": ["domain", "facade", "infrastructure"]
+                "onlyDependOnLibsWithTags": [
+                  "domain",
+                  "facade",
+                  "infrastructure"
+                ]
               },
               {
                 "sourceTag": "infrastructure",
-                "onlyDependOnLibsWithTags": ["infrastructure","data","domain"]
+                "onlyDependOnLibsWithTags": [
+                  "infrastructure",
+                  "data",
+                  "domain",
+                  "shared"
+                ]
               },
               {
                 "sourceTag": "data",
-                "onlyDependOnLibsWithTags": ["data", "domain"]
+                "onlyDependOnLibsWithTags": [
+                  "data",
+                  "domain"
+                ]
               },
               {
                 "sourceTag": "domain",
-                "onlyDependOnLibsWithTags": ["domain"]
+                "onlyDependOnLibsWithTags": [
+                  "domain"
+                ]
               },
               {
                 "sourceTag": "scope:authentication",
-                "onlyDependOnLibsWithTags": ["scope:authentication"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:authentication"
+                ]
               },
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["ui"]
+                "onlyDependOnLibsWithTags": [
+                  "ui"
+                ]
               }
             ]
           }
@@ -46,17 +77,32 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "plugin:@nx/typescript"
+      ],
       "rules": {}
     },
     {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nx/javascript"],
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nx/javascript"
+      ],
       "rules": {}
     },
     {
-      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "files": [
+        "*.spec.ts",
+        "*.spec.tsx",
+        "*.spec.js",
+        "*.spec.jsx"
+      ],
       "env": {
         "jest": true
       },

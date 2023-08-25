@@ -3,14 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot(
@@ -33,7 +32,6 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
     StoreModule,
     EffectsModule,
     StoreDevtoolsModule,
-    NxWelcomeComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

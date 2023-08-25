@@ -6,9 +6,15 @@ import { SignUpContainerComponent } from './containers/sign-up-container/sign-up
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AuthenticationFacadeModule } from '@authentication/facade';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from "@angular/router";
 
 @NgModule({
-  imports: [CommonModule, AuthenticationFacadeModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    AuthenticationFacadeModule,
+    ReactiveFormsModule,
+    RouterLink,
+  ],
   declarations: [
     SignInComponent,
     SignInContainerComponent,

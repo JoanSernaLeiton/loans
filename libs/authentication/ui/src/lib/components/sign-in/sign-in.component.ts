@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { FormControls } from '../../helpers/forms-control';
 import { AuthFacade } from '@authentication/facade';
-import { AuthDTO } from "@authentication/domain";
+import { SignInDTO } from '@authentication/domain';
 
 @Component({
   selector: 'klym-sign-in',
@@ -16,7 +16,7 @@ import { AuthDTO } from "@authentication/domain";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignInComponent implements OnInit {
-  signInForm: FormGroup<FormControls<AuthDTO>> | undefined;
+  signInForm: FormGroup<FormControls<SignInDTO>> | undefined;
 
   constructor(
     private readonly authFacade: AuthFacade,
@@ -24,7 +24,6 @@ export class SignInComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('initialize');
     this.loadInitialData();
   }
 
@@ -32,7 +31,7 @@ export class SignInComponent implements OnInit {
     this.signInForm = this.loadSignInForm();
   }
 
-  loadSignInForm(): FormGroup<FormControls<AuthDTO>> {
+  loadSignInForm(): FormGroup<FormControls<SignInDTO>> {
     return this.formBuilder.group({
       email: new FormControl('', {
         validators: Validators.compose([Validators.email, Validators.required]),
@@ -47,9 +46,11 @@ export class SignInComponent implements OnInit {
 
   signIn(): void {
     if (this.signInForm) {
-      console.log(this.signInForm.getRawValue());
       const { email, password } = this.signInForm.getRawValue();
-      this.authFacade.login(email, password);
+      this.authFacade.signIn({
+        email,
+        password,
+      });
     }
   }
 }

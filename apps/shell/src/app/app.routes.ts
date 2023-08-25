@@ -1,5 +1,4 @@
 import { loadRemoteModule } from '@nx/angular/mf';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
@@ -8,7 +7,12 @@ export const appRoutes: Route[] = [
     loadChildren: () => loadRemoteModule('authentication','./Module').then((m) => m.RemoteEntryModule),
   },
   {
+    path: 'home',
+    loadChildren: () => loadRemoteModule('home','./Module').then((m) => m.RemoteEntryModule),
+  },
+  {
     path: '',
-    component: NxWelcomeComponent,
+    redirectTo: 'authentication',
+    pathMatch: 'full'
   },
 ];

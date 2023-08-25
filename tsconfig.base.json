@@ -21,7 +21,10 @@
       "@authentication/infrastructure": [
         "libs/authentication/infrastructure/src/index.ts"
       ],
-      "@authentication/ui": ["libs/authentication/ui/src/index.ts"]
+      "@authentication/ui": ["libs/authentication/ui/src/index.ts"],
+      "@home/ui": ["libs/home/ui/src/index.ts"],
+      "@klym/shared/environment": ["libs/shared/environment/src/index.ts"],
+      "@klym/shared/web-storage": ["libs/shared/web-storage/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

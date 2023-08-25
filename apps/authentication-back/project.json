@@ -1,0 +1,72 @@
+{
+  "name": "authentication-back",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/authentication-back/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/authentication-back",
+        "main": "apps/authentication-back/src/main.ts",
+        "tsConfig": "apps/authentication-back/tsconfig.app.json",
+        "assets": ["apps/authentication-back/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/authentication-back/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "authentication-back:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "authentication-back:build:development"
+        },
+        "production": {
+          "buildTarget": "authentication-back:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/authentication-back/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/authentication-back/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f apps/authentication-back/Dockerfile . -t authentication-back"
+    },
+    "docker-server": {
+      "command": "docker build -f apps/authentication-back/Dockerfile . -t authentication-back"
+    }
+  },
+  "tags": ["type:backend", "scope:authentication"]
+}

@@ -5,6 +5,8 @@
     "@angular/common": "^16.1.0",
     "@angular/core": "^16.1.0",
     "@authentication/domain": "*",
+    "@klym/shared/environment": "*",
+    "@klym/shared/web-storage": "*",
     "@ngrx/effects": "^16.1.0",
     "@ngrx/store": "^16.1.0",
     "@ngrx/store-devtools": "^16.2.0",

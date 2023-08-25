@@ -4,6 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^16.1.0",
     "@angular/core": "^16.1.0",
+    "@klym/shared/environment": "*",
     "rxjs": "~7.8.0"
   },
   "dependencies": {

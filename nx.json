@@ -24,6 +24,15 @@
         "^production"
       ]
     },
+    "deploy": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
     "test": {
       "inputs": [
         "default",

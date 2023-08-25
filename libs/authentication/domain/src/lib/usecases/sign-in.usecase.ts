@@ -1,14 +1,14 @@
 import { Observable } from 'rxjs';
 import { UseCase } from './usecase';
-import { AuthDTO, AuthResponse } from '../entities/auth.model';
+import { AuthResponse, SignInDTO } from '../entities/auth.model';
 import { AuthRepository } from '../repositories/auth.reposiory';
 
 export class SignInUseCase
-  implements UseCase<AuthDTO, Observable<AuthResponse>>
+  implements UseCase<SignInDTO, Observable<AuthResponse>>
 {
   constructor(private readonly authRepository: AuthRepository) {}
 
-  execute(authDTO: AuthDTO): Observable<AuthResponse> {
-    return this.authRepository.login(authDTO);
+  execute(authDTO: SignInDTO): Observable<AuthResponse> {
+    return this.authRepository.signIn(authDTO);
   }
 }

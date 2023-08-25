@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15.4-alpine
+    environment:
+      POSTGRES_DB: loans
+      POSTGRES_USER: dhovhverkerxtk
+      POSTGRES_PASSWORD: onybrvyzgjufmg
+    ports:
+      - '5433:5432'
+    networks:
+      - loans_network
+
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    networks:
+      - loans_network
+networks:
+  loans_network:
+volumes:
+  loans_volume:
+    name: loans_volume

@@ -7,6 +7,9 @@
         ],
         "authentication": [
           "angular-architecture-authentication"
+        ],
+        "home": [
+          "angular-architecture-home"
         ]
       }
     }

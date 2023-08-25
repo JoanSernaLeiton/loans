@@ -10,7 +10,29 @@
           "headers": [
             {
               "key": "Access-Control-Allow-Origin",
-              "value": "*"
+              "value": "https://angular-architecture-shell.web.app"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "home",
+      "public": "dist/apps/home",
+      "frameworksBackend": {},
+      "headers": [
+        {
+          "source": "**/*.@(mjs|js)",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "https://angular-architecture-shell.web.app"
             }
           ]
         }
