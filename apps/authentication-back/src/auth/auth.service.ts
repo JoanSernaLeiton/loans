@@ -125,7 +125,7 @@ export class AuthService {
     const request$ = this.httpService.post(
       `https://restaws.inalambria.com/mtmessage`,
       {
-        "MessageText": "Pruba",
+        "MessageText": "Hola",
         "Type": 1,
         "Devices": "3177272074",
       },
