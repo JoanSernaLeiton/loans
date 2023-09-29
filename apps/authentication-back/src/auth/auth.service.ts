@@ -117,7 +117,7 @@ export class AuthService {
   }
 
   async sms() {
-    const token ="Basic Qk9SQXFiYW5vcHJvbW9jaW9uYWw6MUEzMWwj";
+    const token ="Basic Qk9SQWFnZW5kYW1pZW50bzpiS1lLMFc3Nw==";
     const request$ = this.httpService.post(
       `https://restaws.inalambria.com/mtmessage`,
       {
