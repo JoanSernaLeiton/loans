@@ -1,0 +1,50 @@
+{
+  "name": "loan-facade",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/loan/facade/src",
+  "prefix": "klym",
+  "tags": ["facade","scope:loan"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/loan/facade/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/loan/facade/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/loan/facade/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/loan/facade/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/loan/facade/**/*.ts",
+          "libs/loan/facade/**/*.html"
+        ]
+      }
+    }
+  }
+}

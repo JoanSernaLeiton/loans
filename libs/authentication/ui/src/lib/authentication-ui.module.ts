@@ -6,7 +6,8 @@ import { SignUpContainerComponent } from './containers/sign-up-container/sign-up
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AuthenticationFacadeModule } from '@authentication/facade';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from "@angular/router";
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { SharedCoreUiModule } from "@shared/core/ui";
 
 @NgModule({
   imports: [
@@ -14,6 +15,8 @@ import { RouterLink } from "@angular/router";
     AuthenticationFacadeModule,
     ReactiveFormsModule,
     RouterLink,
+    RouterOutlet,
+    SharedCoreUiModule
   ],
   declarations: [
     SignInComponent,

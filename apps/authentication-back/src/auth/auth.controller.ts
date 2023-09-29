@@ -4,12 +4,14 @@ import {
   Get,
   HttpCode,
   HttpStatus,
-  Post,
+  Post, UseGuards,
+  Request
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SignInDTO, SignUpDTO } from './dto/auth.dto';
 import { Auth } from './entities/auth.entity';
+import { AuthGuard } from "./guard/auth.guard";
 
 @ApiTags('auth')
 @Controller('auth')
@@ -34,12 +36,19 @@ export class AuthController {
   ): Promise<{ access_token: string }> {
     return this.authService.signIn(signInDTO);
   }
-
-  @ApiOperation({ summary: 'get all auths' })
-  @ApiResponse({ status: 200, description: 'Get all auths successfully' })
+  @ApiOperation({ summary: 'SMS Text' })
+  @ApiResponse({ status: 200, description: 'SMS Text' })
   @HttpCode(HttpStatus.OK)
-  @Get('')
-  getAuths(): Promise<Auth[]> {
-    return this.authService.getAuths();
+  @Post('sms')
+  async sms(): Promise<unknown> {
+    return await this.authService.sms();
+  }
+  @UseGuards(AuthGuard)
+  @ApiOperation({ summary: 'get user detail' })
+  @ApiResponse({ status: 200, description: 'Get user detail successfully' })
+  @HttpCode(HttpStatus.OK)
+  @Get('user')
+  getUserDetail(@Request() req:Request): Promise<Auth> {
+    return this.authService.getUserDetail(req);
   }
 }

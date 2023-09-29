@@ -5,12 +5,14 @@ import {
   NotAcceptableException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { FindOptionsSelect, Repository } from 'typeorm';
 import { Auth } from './entities/auth.entity';
 import { SignInDTO, SignUpDTO } from './dto/auth.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { HttpService } from "@nestjs/axios";
+import { firstValueFrom } from "rxjs";
 
 @Injectable()
 export class AuthService {
@@ -18,12 +20,16 @@ export class AuthService {
   private readonly logger = new Logger(AuthService.name);
   @InjectRepository(Auth) private readonly authRepository: Repository<Auth>;
 
-  constructor(private readonly jwtService: JwtService) {}
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly httpService: HttpService,
+
+  ) {}
 
   async signUp(signUpDTO: SignUpDTO): Promise<{ access_token: string }> {
     this.logger.log('Auth sign up dto', JSON.stringify(signUpDTO));
     try {
-      const user = await this.verifyUserExists(signUpDTO.email);
+      const user = await this.verifyUserExists(signUpDTO.email, {});
       if (user) {
         throw new NotAcceptableException();
       }
@@ -47,16 +53,22 @@ export class AuthService {
     }
   }
 
-  async verifyUserExists(email: string): Promise<Auth> {
+  async verifyUserExists(
+    email: string,
+    fields: FindOptionsSelect<Auth>
+  ): Promise<Auth> {
     return await this.authRepository.findOne({
       where: { email },
+      select: fields,
     });
   }
 
   async signIn(signInDTO: SignInDTO): Promise<{ access_token: string }> {
     try {
-      const authFound = await this.authRepository.findOne({
-        where: { email: signInDTO.email },
+      const authFound = await this.verifyUserExists(signInDTO.email, {
+        id: true,
+        email: true,
+        password: true,
       });
 
       this.validateAuthentication(authFound, signInDTO.password);
@@ -73,10 +85,14 @@ export class AuthService {
     }
   }
 
-  async getAuths() {
-    const auths = await this.authRepository.find();
-    this.logger.debug('auth', auths);
-    return auths;
+  async getUserDetail(request: Request) {
+    this.logger.log('user', request['user']['email']);
+    const email = request['user']['email'];
+    return await this.verifyUserExists(email, {
+      email: true,
+      name: true,
+      lastName: true,
+    });
   }
 
   private validateAuthentication(
@@ -98,5 +114,24 @@ export class AuthService {
 
   private handleSignInError(error: Error): void {
     this.logger.warn('Error when signing in user', error);
+  }
+
+  async sms() {
+    const token ="Basic U3RhcnR1cDAwMUBleHQuaW5hbGFtYnJpYS5jb206MTIzJjc2NS4";
+    const request$ = this.httpService.post(
+      `https://restaws.inalambria.com/mtmessage`,
+      {
+        "MessageText": "Pruba",
+        "Type": 1,
+        "Devices": "3177272074",
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `${token}`,
+        },
+      }
+    );
+    return await firstValueFrom(request$);
   }
 }

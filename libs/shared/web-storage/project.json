@@ -4,8 +4,7 @@
   "sourceRoot": "libs/shared/web-storage/src",
   "prefix": "klym",
   "tags": [
-    "shared",
-    "scope:authentication"
+    "scope:shared"
   ],
   "projectType": "library",
   "targets": {

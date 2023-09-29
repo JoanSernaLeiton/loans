@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/home/ui/src",
   "prefix": "klym",
-  "tags": ["ui"],
+  "tags": ["ui","scope:home"],
   "projectType": "library",
   "targets": {
     "build": {

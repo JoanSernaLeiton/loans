@@ -24,7 +24,7 @@ import { appRoutes } from "./app.routes";
     StoreDevtoolsModule.instrument({maxAge:25}),
     RouterModule.forRoot(
       [...appRoutes],
-      { initialNavigation: 'enabledBlocking', }
+      { initialNavigation: 'enabledBlocking',enableTracing:false }
     ),
   ],
   providers: [],

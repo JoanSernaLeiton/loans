@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "klym",
   "sourceRoot": "apps/shell/src",
-  "tags": ["scope:host"],
+  "tags": ["scope:host","type:app"],
   "implicitDependencies": ["authentication"],
   "targets": {
     "build": {
@@ -41,7 +41,13 @@
           "outputHashing": "all",
           "customWebpackConfig": {
             "path": "apps/shell/webpack.prod.config.js"
-          }
+          },
+          "fileReplacements": [
+            {
+              "replace": "apps/shell/src/assets/module-federation.manifest.local.json",
+              "with": "apps/shell/src/assets/module-federation.manifest.json"
+            }
+          ]
         },
         "development": {
           "buildOptimizer": false,

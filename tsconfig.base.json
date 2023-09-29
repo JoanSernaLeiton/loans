@@ -22,9 +22,26 @@
         "libs/authentication/infrastructure/src/index.ts"
       ],
       "@authentication/ui": ["libs/authentication/ui/src/index.ts"],
+      "@home/data": ["libs/home/data/src/index.ts"],
+      "@home/domain": ["libs/home/domain/src/index.ts"],
+      "@home/facade": ["libs/home/facade/src/index.ts"],
+      "@home/infrastructure": ["libs/home/infrastructure/src/index.ts"],
       "@home/ui": ["libs/home/ui/src/index.ts"],
       "@klym/shared/environment": ["libs/shared/environment/src/index.ts"],
-      "@klym/shared/web-storage": ["libs/shared/web-storage/src/index.ts"]
+      "@klym/shared/web-storage": ["libs/shared/web-storage/src/index.ts"],
+      "@loan/data": ["libs/loan/data/src/index.ts"],
+      "@loan/domain": ["libs/loan/domain/src/index.ts"],
+      "@loan/facade": ["libs/loan/facade/src/index.ts"],
+      "@loan/infrastructure": ["libs/loan/infrastructure/src/index.ts"],
+      "@loan/ui": ["libs/loan/ui/src/index.ts"],
+      "@navbar/ui": ["libs/navbar/ui/src/index.ts"],
+      "@shared/core/data": ["libs/shared/core/data/src/index.ts"],
+      "@shared/core/domain": ["libs/shared/core/domain/src/index.ts"],
+      "@shared/core/facade": ["libs/shared/core/facade/src/index.ts"],
+      "@shared/core/infrastructure": [
+        "libs/shared/core/infrastructure/src/index.ts"
+      ],
+      "@shared/core/ui": ["libs/shared/core/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

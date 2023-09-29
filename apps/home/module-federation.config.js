@@ -3,4 +3,5 @@ module.exports = {
   exposes: {
     './Module': 'apps/home/src/app/remote-entry/entry.module.ts',
   },
+  remotes: []
 };

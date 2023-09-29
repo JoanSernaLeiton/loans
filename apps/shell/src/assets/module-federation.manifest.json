@@ -1,4 +1,6 @@
 {
   "authentication": "https://angular-architecture-authentication.web.app",
-  "home": "https://angular-architecture-home.web.app"
+  "home": "https://angular-architecture-home.web.app",
+  "loan": "http://localhost:4206",
+  "navbar": "http://localhost:4800"
 }

@@ -4,9 +4,7 @@
   "sourceRoot": "libs/shared/environment/src",
   "prefix": "klym",
   "tags": [
-    "shared",
-    "scope:authentication",
-    "scope:host"
+    "scope:shared"
   ],
   "projectType": "library",
   "targets": {

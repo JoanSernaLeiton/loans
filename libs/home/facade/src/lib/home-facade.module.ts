@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { HomeInfrastructureModule } from '@home/infrastructure';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [HomeInfrastructureModule],
 })
 export class HomeFacadeModule {}

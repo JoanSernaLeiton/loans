@@ -26,7 +26,8 @@
                 "onlyDependOnLibsWithTags": [
                   "domain",
                   "facade",
-                  "infrastructure"
+                  "infrastructure",
+                  "scope:shared"
                 ]
               },
               {
@@ -43,7 +44,7 @@
                   "infrastructure",
                   "data",
                   "domain",
-                  "shared"
+                  "scope:shared"
                 ]
               },
               {
@@ -62,7 +63,21 @@
               {
                 "sourceTag": "scope:authentication",
                 "onlyDependOnLibsWithTags": [
-                  "scope:authentication"
+                  "scope:authentication",
+                  "scope:shared"
+                ]
+              },
+              {
+                "sourceTag": "scope:home",
+                "onlyDependOnLibsWithTags": [
+                  "scope:home",
+                  "scope:shared"
+                ]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": [
+                  "scope:shared"
                 ]
               },
               {

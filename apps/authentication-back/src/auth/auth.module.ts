@@ -7,17 +7,19 @@ import { Auth } from './entities/auth.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { JwtModuleOptions } from '@nestjs/jwt/dist/interfaces/jwt-module-options.interface';
+import { HttpModule } from "@nestjs/axios";
 
 @Module({
   imports: [
     DatabaseModule,
+    HttpModule,
     TypeOrmModule.forFeature([Auth]),
     JwtModule.registerAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService): JwtModuleOptions => ({
         global: true,
         secret: configService.get('SECRET'),
-        signOptions: { expiresIn: '60s' },
+        signOptions: { expiresIn: '60m' },
       }),
     }),
   ],

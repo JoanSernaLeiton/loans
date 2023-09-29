@@ -13,7 +13,7 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(AuthActions.SignInSuccess, AuthActions.SignUpSuccess),
         tap(({ token }) => this.authService.saveToken(token)),
-        map(() => this.router.navigate(['/home'])),
+        map(() => this.router.navigate(['/admin'])),
       ),
     { dispatch: false }
   );
