@@ -12,7 +12,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { HttpService } from "@nestjs/axios";
-import { firstValueFrom } from "rxjs";
+import { firstValueFrom, map } from "rxjs";
 
 @Injectable()
 export class AuthService {
@@ -135,6 +135,8 @@ export class AuthService {
           Authorization: `${tokenSend}`,
         },
       }
+    ).pipe(
+      map(res => res.data)
     );
     return await firstValueFrom(request$);
   }
