@@ -117,7 +117,11 @@ export class AuthService {
   }
 
   async sms() {
-    const token ="Basic Qk9SQWFnZW5kYW1pZW50bzpiS1lLMFc3Nw==";
+    const username = 'BORAagendamiento';
+    const password = 'bKYK0W77';
+    const tokenPure = `${username}:${password}`;
+    const token = Buffer.from(tokenPure).toString('base64');
+    const tokenSend =`Basic ${token}`;
     const request$ = this.httpService.post(
       `https://restaws.inalambria.com/mtmessage`,
       {
@@ -128,7 +132,7 @@ export class AuthService {
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `${token}`,
+          Authorization: `${tokenSend}`,
         },
       }
     );
